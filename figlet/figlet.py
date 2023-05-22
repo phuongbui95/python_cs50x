@@ -1,6 +1,6 @@
 import sys
 from pyfiglet import Figlet
-from random import randrange
+import random
 
 def checkCommandLine():
     # print(sys.argv) # check elements after the "command word" in command-line
@@ -16,11 +16,9 @@ def checkCommandLine():
 
 def figletExecution(f=None):
     figlet = Figlet()
-    fonts = figlet.getFonts()
     if f is None:    
-        randFontNum = randrange(len(fonts))
-        # print(f"Font {randFontNum} is {fonts[randFontNum]}")
-        figlet.setFont(font=fonts[randFontNum])
+        fonts = figlet.getFonts()
+        figlet.setFont(font=random.choice(fonts))
     else:    
         try:
             figlet.setFont(font=f)
