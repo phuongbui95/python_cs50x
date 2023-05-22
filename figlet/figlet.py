@@ -21,12 +21,12 @@ def figletExecution(f=None):
         randFontNum = randrange(len(fonts))
         # print(f"Font {randFontNum} is {fonts[randFontNum]}")
         figlet.setFont(font=fonts[randFontNum])
-    else:
-        if f not in fonts:
+    else:    
+        try:
+            figlet.setFont(font=f)
+        except:
             print("Invalid usage")
             return sys.exit(1)
-        else:
-            figlet.setFont(font=f)
     
     input_str = input("Input: ")
     # Output
